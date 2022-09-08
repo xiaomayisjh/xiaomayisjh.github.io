@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://www.shousuceshi.com/ -->
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport">
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="测手速，手速测试，在线测手速，测手速的游戏，在线手速测试">
+<meta name="description" content="一款好玩的手速测试游戏，帮助您在线测手速，在线手速测试，就在手速测试网。">
+<title>手速测试_测手速_在线测手速游戏</title>
+<link rel="stylesheet" href="./手速测试_测手速_在线测手速游戏_files/kinerLottery.css">
+<link rel="stylesheet" href="./手速测试_测手速_在线测手速游戏_files/index_moblie.css">
+<script src="./手速测试_测手速_在线测手速游戏_files/clipboard.js"></script><style type="text/css"></style>
+<script src="./手速测试_测手速_在线测手速游戏_files/jquery.min.js"></script>
+
+<style>
+b.off{background:#ccc;color:#fff;width:100%;display:block;text-align:center;border-radius:10px;}
+.copyling{background:#ff0000;width:100%;display:block;text-align:center;color:#fff;border-radius:10px;}
+</style>
+</head><body><div class="content" style="background:url(img/bg.png) no-repeat;background-size:100% 100%;">
+<!--头部-->
+<div class="i_head" style="width:100%;z-index:9999;right:0;height:90px;padding-top:10px;">
+   <div class="i_head_center">
+      <div class="i_head_center_l">
+	   <img src="./手速测试_测手速_在线测手速游戏_files/logo.png" style="width:320px;height:80px;">
+      </div>
+   </div>
+</div>
+<!--头部-->
+<div class="i_center">
+   <div class="i_center_c">
+
+      <!--内容-->
+	<div class="i_center_z clear">
+	       <div class="i_center_z_top">
+	         <div class="i_center_z_top_1">
+				<div class="i_center_z_body">
+					<div class="article_body">
+					  <p id="menu-toggle" class="iconfont"></p>
+                      <div id="home-page">
+                          <div class="test">
+                              <div id="box" style="border-color: rgb(0, 0, 0); padding-top: 10px;">
+                                  <p id="box-text" style="line-height: 40px; background: rgb(255, 0, 0); color: rgb(0, 0, 0); width: 80%; margin-left: 10%;">点我开始测试</p>
+                              </div>
+                              <p id="time" style="line-height:40px;">0.00s</p>
+                              <p id="click-times" style="line-height:40px;">你一共点击了: 0次</p>
+                              <p id="cps-result" style="display: none;">你的CPS是: 36.8</p>
+                              <a href="javascript:;" id="retest" style="line-height: 40px; background: rgb(27, 35, 137); color: rgb(255, 255, 255); width: 60%; display: none;">重新测试</a>
+                             <p style="text-align:left;text-indent:20px;padding-top:10px;">【手速测试】点击测试按钮，在10s内疯狂点击，测试您的手速CPS值是多大？</p>
+                            <p style="padding-top:10px;color:#ff0000;">CPS值：简单来说就是鼠标点击的频率</p>
+                          </div>
+                      </div>
+					  </div>
+				</div>
+		     </div>
+	       </div>
+        </div>
+
+ <script>
+        $(function(){$(window).resize(function(){var height=$(window).height();var width=$(window).width();if(width>900){$('.mb-menu').removeAttr('style')}})});
+        
+        function CpsTest(){this.testing=false;this.running=false;this.cpsArr=[];this.counter=0;this.temp=0;this.temp2=0}var cpsTest=new CpsTest();CpsTest.prototype.count=function(){if(cpsTest.timer2==null){function eachClick(){cpsTest.temp=cpsTest.counter;cpsTest.counter=0;cpsTest.temp2+=cpsTest.temp;cpsTest.cpsArr.push(cpsTest.temp);if(cpsTest.sec==1000){clearInterval(cpsTest.timer2);var clickTimes=0;cpsTest.cpsArr.map(function(item){return clickTimes+=item});$('#retest').css('display','inline-block');$('#cps-result').css('display','block');$('#cps-result').text('你的CPS是: '+(clickTimes/10));var max=cpsTest.cpsArr[0],min=cpsTest.cpsArr[0];for(var i=0;i<cpsTest.cpsArr.length;i++){var cur=cpsTest.cpsArr[i];max<cur?max=cur:null}for(var i=0;i<cpsTest.cpsArr.length;i++){var cur2=cpsTest.cpsArr[i];min>cur?min=cur:null}$('#never-test').css('display','none');$('#recording-table').css('display','table');$('#recording-table').append('<tr><td>'+clickTimes+'</td><td>'+max+'</td><td>'+min+'</td><td>'+(clickTimes/10)+'</td></tr>')}}cpsTest.timer2=setInterval(eachClick,1000)}if(cpsTest.testing){cpsTest.counter++;var totalClick=cpsTest.temp2+cpsTest.counter;$('#click-times').text('你一共点击了: '+totalClick+'次')}};CpsTest.prototype.time=function(){var date=new Date();cpsTest.testing=true;cpsTest.running=true;cpsTest.ms=Math.floor((date.getTime()-st)%1000/10);cpsTest.sec=Math.floor((date.getTime()-st)%60000/1000);cpsTest.ms=cpsTest.ms<10?'0'+cpsTest.ms:cpsTest.ms;$('#time').text(cpsTest.sec+'.'+cpsTest.ms+'s');if(cpsTest.sec==10){cpsTest.ms=0;clearInterval(cpsTest.timer);$('#time').text('10.00s');cpsTest.testing=false}};
+        try{var oBox=document.getElementById('box');var st=0;var oHp=document.getElementsByClassName('hp');var oRecording=document.getElementsByClassName('record');var oDesc=document.getElementsByClassName('desc');var mbMenuBtn=$('#menu-toggle')[0];var open=false;for(var i=0;i<oHp.length;i++){oHp[i].onclick=function(){$('#home-page').css('display','block');$('#recording-page').css('display','none');$('#about-page').css('display','none');$('.mb-menu:eq(0)').slideUp()}}for(var i=0;i<oRecording.length;i++){oRecording[i].onclick=function(){$('#home-page').css('display','none');$('#recording-page').css('display','block');$('#about-page').css('display','none');$('.mb-menu:eq(0)').slideUp(300)}}for(var i=0;i<oDesc.length;i++){oDesc[i].onclick=function(){$('#home-page').css('display','none');$('#recording-page').css('display','none');$('#about-page').css('display','block');$('.mb-menu:eq(0)').slideUp(300)}}mbMenuBtn.addEventListener('click',function(){if(open==false){open=true;$('.mb-menu').stop(true,true).slideDown()}else if(open){open=false;$('.mb-menu').stop(true,true).slideUp()}});if(/Android|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){$('#box').click(function(){if(!cpsTest.testing&&!cpsTest.running){cpsTest.testing=true;st=new Date().getTime();cpsTest.timer=setInterval(cpsTest.time,10)}cpsTest.count()})}else{oBox.onmousedown=function(event){var e=event||window.event;if(e.button!=0)return;if(!cpsTest.testing&&!cpsTest.running){cpsTest.testing=true;st=new Date().getTime();cpsTest.timer=setInterval(cpsTest.time,10)}cpsTest.count();oBox.style.borderColor='#8d8d8d';$('#box-text').css('color','#8d8d8d')}}oBox.onmouseup=function(){oBox.style.borderColor='#000';$('#box-text').css('color','#000')};$('body').mouseover(function(e){if($(e.target).closest('#box').length==0){oBox.onmouseup()}});$('#retest').click(function(){cpsTest=new CpsTest();$('#cps-result').css('display','none');$('#click-times').text('你一共点击了: 0次');$('#retest').css('display','none');$('#time').text('0.00s')});var closeBtn=document.getElementsByClassName('close')[0];var rewardBtn=document.getElementsByClassName('reward')[0];rewardBtn.onclick=function(){$('.wrap').eq(0).fadeIn(520,function(){$('.wrap').eq(0).removeAttr('style');$('.wrap').eq(0).removeClass('hide')})};closeBtn.onclick=function(){$('.wrap').eq(0).addClass('hide')};document.onclick=function(e){var menuOpened=document.getElementsByClassName('mb-menu')[0].style.display;var menuToggleBtn=document.getElementById('menu-toggle');if(e.target!=menuToggleBtn&&menuOpened=='block'){$('.mb-menu').stop(true,false).slideUp(350)}}}catch(e){console.log(e)}
+    </script>
+
+
+
+
+
+<div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;">
+	<div id="trans-tooltip">
+		<div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left-top.png&quot;);">
+
+		</div>
+		<div id="tip-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-top.png&quot;) repeat-x;">
+
+		</div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right-top.png&quot;);">
+
+	</div>
+		<div id="tip-right" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right.png&quot;) repeat-y;">
+
+		</div>
+		<div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right-bottom.png&quot;);">
+
+		</div>
+		<div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-bottom.png&quot;) repeat-x;">
+
+		</div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left-bottom.png&quot;);">
+
+	</div>
+		<div id="tip-left" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left.png&quot;);">
+
+		</div>
+		<div id="trans-content">
+
+		</div>
+	</div>
+	<div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-arrow-bottom.png&quot;);">
+
+	</div>
+	<div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-arrow-top.png&quot;);">
+
+	</div>
+</div>
+</body>
+</html>
